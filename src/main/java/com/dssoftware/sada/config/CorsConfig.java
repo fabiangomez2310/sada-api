@@ -16,7 +16,7 @@ public class CorsConfig {
                 registry.addMapping("/**")
                         .allowedOrigins(
                                 "http://localhost:3000",                // desarrollo
-                                "https://sada-frontend.vercel.app"     // producción
+                                "https://sada-app.onrender.com"     // producción
                         )
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                         .allowedHeaders("*");
