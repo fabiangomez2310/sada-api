@@ -13,10 +13,14 @@ public class CorsConfig {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/api/**") // todos los endpoints de tu API
-                        .allowedOrigins("http://localhost:3000") // frontend local
-                        .allowedMethods("POST") // solo POST
-                        .allowCredentials(true);
+                registry.addMapping("/**")
+                        .allowedOrigins(
+                                "http://localhost:3000",                // desarrollo
+                                "https://sada-frontend.vercel.app"     // producción
+                        )
+                        .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
+                        .allowedHeaders("*");
+
             }
         };
     }
