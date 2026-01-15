@@ -4,6 +4,7 @@ package com.dssoftware.sada.controller;
 import com.dssoftware.sada.dto.ConstitucionRequest;
 import com.dssoftware.sada.dto.ConstitucionResponse;
 import com.dssoftware.sada.service.ConstitucionService;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -17,7 +18,8 @@ public class ConstitucionController {
     }
 
     @PostMapping("/calcular")
-    public ConstitucionResponse calcular(@RequestBody ConstitucionRequest request) {
+    public ConstitucionResponse calcular(
+            @Valid @RequestBody ConstitucionRequest request) {
         return constitucionService.calcular(request);
     }
 }

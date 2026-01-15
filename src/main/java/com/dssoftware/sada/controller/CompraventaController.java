@@ -3,6 +3,7 @@ package com.dssoftware.sada.controller;
 import com.dssoftware.sada.dto.CompraventaRequest;
 import com.dssoftware.sada.dto.CompraventaResponse;
 import com.dssoftware.sada.service.CompraventaService;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -16,7 +17,8 @@ public class CompraventaController {
     }
 
     @PostMapping("/calcular")
-    public CompraventaResponse calcular(@RequestBody CompraventaRequest request) {
+    public CompraventaResponse calcular(
+            @Valid @RequestBody CompraventaRequest request) {
         return compraventaService.calcular(request);
     }
 }

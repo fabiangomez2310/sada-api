@@ -3,6 +3,7 @@ package com.dssoftware.sada.controller;
 import com.dssoftware.sada.dto.RenovacionRequest;
 import com.dssoftware.sada.dto.RenovacionResponse;
 import com.dssoftware.sada.service.RenovacionService;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -16,7 +17,8 @@ public class RenovacionController {
     }
 
     @PostMapping("/calcular")
-    public RenovacionResponse calcular(@RequestBody RenovacionRequest request) {
+    public RenovacionResponse calcular(
+            @Valid @RequestBody RenovacionRequest request) {
 
         return renovacionService.calcular(request);
     }
